@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.it_store.R;
 import com.example.it_store.adapter.LoaispAdapter;
 import com.example.it_store.model.Loaisp;
+import com.example.it_store.ultil.CheckConnection;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
@@ -38,8 +39,13 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         Anhxa();
-        ActionBar();
-        ActionViewFlipper();
+        if(CheckConnection.haveNetworkConnection(getApplicationContext())){
+            ActionBar();
+            ActionViewFlipper();
+        }
+        else{
+            CheckConnection.ShowToast_Short(getApplicationContext(),"Bạn hãy kiểm tra lại kết nối");
+        }
     }
 
     private void ActionViewFlipper() {

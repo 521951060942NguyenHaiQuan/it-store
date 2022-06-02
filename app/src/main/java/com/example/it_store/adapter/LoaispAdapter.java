@@ -57,15 +57,16 @@ public class LoaispAdapter extends BaseAdapter {
         }
             else{
                 viewHolder =(ViewHolder)  view.getTag();
-                Loaisp loaisp= (Loaisp) getItem(i);
-                viewHolder.txttenloaisp.setText(loaisp.getTenloaisp());
-                Picasso.get().load(loaisp.getHinhanhloaisp())
-                        .placeholder(R.drawable.noimage)
-                        .error(R.drawable.error)
-                        .into(viewHolder.imgloaisp);
-            }
 
-        return null;
+            }
+        Loaisp loaisp= (Loaisp) getItem(i);
+        viewHolder.txttenloaisp.setText(loaisp.getTenloaisp());
+        Picasso.get().load(loaisp.getHinhanhloaisp())
+                .placeholder(R.drawable.noimage)
+                .error(R.drawable.error)
+                .into(viewHolder.imgloaisp);
+
+        return view;
     }
 
 }
